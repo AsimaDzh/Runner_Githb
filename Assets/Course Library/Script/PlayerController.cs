@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float gravityModifier;
     private bool isOnGround = true;
+    public bool isGameOver = false;
 
 
     void Start()
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+            isOnGround = true;
+        else if (collision.gameObject.CompareTag("Obstacle"))
+            isGameOver = true;
     }
 }
