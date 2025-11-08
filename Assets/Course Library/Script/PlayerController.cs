@@ -3,15 +3,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+    private Animator playerAnim;
     [SerializeField] private float jumpForce;
     [SerializeField] private float gravityModifier;
-    private bool isOnGround = true;
-    public bool isGameOver = false;
 
+    public bool isGameOver = false;
+    private bool isOnGround = true;
 
     void Start()
     {
+        playerAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+
         Physics.gravity *= gravityModifier;
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isOnGround)
         {
+            playerAnim.SetTrigger("Jump_trig");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
