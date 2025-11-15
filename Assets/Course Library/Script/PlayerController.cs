@@ -61,4 +61,10 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }
+
+    public void OnFire()
+    {
+        if (isOnGround && !isGameOver)
+            playerAnim.SetBool("Shoot_b", true);
+    }
 }
