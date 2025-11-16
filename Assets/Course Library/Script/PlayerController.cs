@@ -4,18 +4,25 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private Animator playerAnim;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float gravityModifier;
+    private float jumpForce = 40f;
+    private float gravityModifier = 15f;
 
+    [Header("========== GameOver ==========")]
     public bool isGameOver = false;
     private bool isOnGround = true;
 
+    [Header("========== Bullet Settings ==========")]
+    public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+    [SerializeField] private float bulletSpeed = 20f;
+
+    [Header("========== Particle Effects ==========")]
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
 
+    [Header("========== Audio Clips ==========")]
     public AudioClip jumpSound;
     public AudioClip crashSound;
-
     private AudioSource playerAudio;
 
     void Start()
@@ -65,6 +72,12 @@ public class PlayerController : MonoBehaviour
     public void OnFire()
     {
         if (isOnGround && !isGameOver)
+        {
             playerAnim.SetBool("Shoot_b", true);
+
+            var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+            bulletRb.linearVelocity = Vector3.right * bulletSpeed;
+        }
     }
 }
