@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
+
     void SpawnObstacle()
     {
         if (!playerControllerScript.isGameOver)

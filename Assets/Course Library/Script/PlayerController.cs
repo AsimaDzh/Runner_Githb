@@ -4,8 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private Animator playerAnim;
-    private float jumpForce = 40f;
-    private float gravityModifier = 15f;
+    private float jumpForce = 28f;
+    private float gravityModifier = 8f;
 
     [Header("========== GameOver ==========")]
     public bool isGameOver = false;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire()
     {
-        if (isOnGround && !isGameOver)
+        if (!isGameOver)
         {
             playerAnim.SetBool("Shoot_b", true);
 
