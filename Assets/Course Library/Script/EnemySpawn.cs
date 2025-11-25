@@ -35,7 +35,7 @@ public class EnemySpawn : MonoBehaviour
 
             enemyAudio.PlayOneShot(deathSound, 1.0f);
             deathParticle.Play();
-            enemyAnim.SetBool("isDead", true);
+            enemyAnim.SetBool("isDead", true); //Help
 
             var col = GetComponent<Collider>();
             if (col != null) col.enabled = false;
