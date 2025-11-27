@@ -417,11 +417,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
-  bulletSpawnPoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 2039131663482338537}
+  bulletPrefab: {fileID: 8388812039729747081, guid: aa8cc3d114d1b9a4bad34c80905c09b5, type: 3}
   bulletSpeed: 20
   explosionParticle: {fileID: 5888163110176963593}
   dirtParticle: {fileID: 1733912725252117704}
+  landDirtParticle: {fileID: 0}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
 --- !u!114 &3577518743032062193
@@ -484,7 +485,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100066}
   serializedVersion: 4
-  m_Mass: 40
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2318,7 +2319,7 @@ Transform:
   m_GameObject: {fileID: 379352182564623067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 2, z: 1.11}
+  m_LocalPosition: {x: -0, y: 2, z: 0.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

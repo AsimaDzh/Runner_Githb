@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("========== Particle Effects ==========")]
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
+    //public ParticleSystem landDirtParticle;
 
     [Header("========== Audio Clips ==========")]
     public AudioClip jumpSound;
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
 
+            //landDirtParticle.Play();
             dirtParticle.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
@@ -67,14 +69,23 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
         }
+        else if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            isGameOver = true;
+
+            playerAnim.SetBool("Death_b", true);
+            playerAnim.SetInteger("DeathType_int", 2);
+
+            explosionParticle.Play();
+            dirtParticle.Stop();
+            playerAudio.PlayOneShot(crashSound, 1.0f);
+        }
     }
 
     public void OnFire()
     {
         if (!isGameOver)
         {
-            playerAnim.SetBool("Shoot_b", true);
-
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
             bulletRb.linearVelocity = Vector3.right * bulletSpeed;

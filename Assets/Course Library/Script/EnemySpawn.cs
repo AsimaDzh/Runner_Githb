@@ -46,7 +46,7 @@ public class EnemySpawn : MonoBehaviour
 
     private IEnumerator DeathAndRespawnRoutine()
     {
-        float waitTime = 0.8f;
+        float waitTime = 1.2f;
         yield return new WaitForSeconds(waitTime);
 
         gameObject.SetActive(false);
