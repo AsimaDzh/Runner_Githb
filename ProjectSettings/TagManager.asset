@@ -46,6 +46,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3584918321
+    locked: 0
+  - name: Windows Logo
+    uniqueID: 240181637
+    locked: 0
+  - name: Panel
+    uniqueID: 3540137413
+    locked: 0
+  - name: Folders
+    uniqueID: 3588455603
+    locked: 0
+  - name: Explorer
+    uniqueID: 3453203771
+    locked: 0
+  - name: Cursor
+    uniqueID: 2245740471
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
