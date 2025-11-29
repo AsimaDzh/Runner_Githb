@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("========== Particle Effects ==========")]
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
-    //public ParticleSystem landDirtParticle;
+    public ParticleSystem landDirtParticle;
 
     [Header("========== Audio Clips ==========")]
     public AudioClip jumpSound;
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
 
-            //landDirtParticle.Play();
+            landDirtParticle.Play();
             dirtParticle.Play();
         }
         else if (collision.gameObject.CompareTag("Obstacle"))

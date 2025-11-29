@@ -401,6 +401,7 @@ Transform:
   - {fileID: 400030}
   - {fileID: 5581794715899364098}
   - {fileID: 1733912725266291864}
+  - {fileID: 1357210747908149013}
   - {fileID: 2039131663482338537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -422,7 +423,7 @@ MonoBehaviour:
   bulletSpeed: 20
   explosionParticle: {fileID: 5888163110176963593}
   dirtParticle: {fileID: 1733912725252117704}
-  landDirtParticle: {fileID: 0}
+  landDirtParticle: {fileID: 1517489042097817867}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
 --- !u!114 &3577518743032062193
@@ -2510,4 +2511,75 @@ Transform:
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5208891517686451396, guid: 65b8f3149d4f45e4bb80f3002ff992ba, type: 3}
   m_PrefabInstance: {fileID: 1873293048173506765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7047825398897730172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 400066}
+    m_Modifications:
+    - target: {fileID: 3568940307731732546, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_Name
+      value: Dirt_Landing_Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.37000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+--- !u!4 &1357210747908149013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8294258494873152873, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+  m_PrefabInstance: {fileID: 7047825398897730172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1517489042097817867 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8413238561898212215, guid: 302de2686a7c58843affbcf1115bc868, type: 3}
+  m_PrefabInstance: {fileID: 7047825398897730172}
   m_PrefabAsset: {fileID: 0}
