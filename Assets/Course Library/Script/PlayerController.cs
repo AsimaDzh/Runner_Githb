@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;
     private float jumpForce = 28f;
     private float gravityModifier = 8f;
+    private static bool _gravityInitialized = false;
 
     [Header("========== GameOver ==========")]
+    public GameObject gameOverPanel;
     public bool isGameOver = false;
     private bool isOnGround = true;
 
@@ -32,7 +34,11 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 
-        Physics.gravity *= gravityModifier;
+        if (!_gravityInitialized)
+        {
+            Physics.gravity *= gravityModifier;
+            _gravityInitialized = true;
+        }
     }
 
     public void OnJump()
@@ -61,6 +67,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             isGameOver = true;
+            gameOverPanel.SetActive(true);
 
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
@@ -72,6 +79,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("EnemyBullet"))
         {
             isGameOver = true;
+            gameOverPanel.SetActive(true);
 
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 2);

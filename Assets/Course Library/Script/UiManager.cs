@@ -12,6 +12,6 @@ public class UiManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Prototype3");
+        SceneManager.LoadScene("Prototype 3");
     }
 }
