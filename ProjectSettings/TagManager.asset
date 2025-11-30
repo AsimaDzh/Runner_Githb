@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - EnemyBullet
+  - Paralax
   layers:
   - Default
   - TransparentFX
