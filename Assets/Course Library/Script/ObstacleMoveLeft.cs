@@ -17,13 +17,10 @@ public class ObstacleMoveLeft : MonoBehaviour
     {
         if (!playerControllerScript.isGameOver)
         {
-            if (gameObject.CompareTag("Paralax"))
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
-            else if (gameObject.CompareTag("Obstacle"))
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
+        if (transform.position.x < leftBound && !gameObject.CompareTag("Paralax"))
             Destroy(gameObject);
     }
 }
