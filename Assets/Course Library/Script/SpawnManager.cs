@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject obstaclePrefab;
+    [SerializeField] GameObject[] spawnablePrefabs;
+
     private Vector3 spawnPos = new Vector3(25f, 1.3f, 0f);
     private float startDelay = 2f;
     private float repeatRate = 2f;
@@ -20,6 +21,9 @@ public class SpawnManager : MonoBehaviour
     void SpawnObstacle()
     {
         if (!playerControllerScript.isGameOver)
-            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            Instantiate(
+                spawnablePrefabs[Random.Range(0, spawnablePrefabs.Length)], 
+                spawnPos, 
+                Quaternion.identity);
     }
 }
