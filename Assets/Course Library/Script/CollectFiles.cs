@@ -6,6 +6,7 @@ public class CollectFiles : MonoBehaviour
     private int fileCount = 0;
 
     public TextMeshProUGUI fileCountText;
+    public TextMeshProUGUI gameOverFilesText;
 
     void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class CollectFiles : MonoBehaviour
         {
             fileCount++;
             fileCountText.text = fileCount.ToString();
+            gameOverFilesText.text = "You ate " + fileCount.ToString() + " files";
             Destroy(other.gameObject);
         }
     }
