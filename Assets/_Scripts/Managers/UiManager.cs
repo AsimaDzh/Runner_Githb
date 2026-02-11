@@ -3,15 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
-
-
     public void Quit()
     {
         Application.Quit();
     }
 
+
     public void Restart()
     {
-        SceneManager.LoadScene("Prototype 3");
+        SceneManager.LoadScene("Runner Game");
     }
 }

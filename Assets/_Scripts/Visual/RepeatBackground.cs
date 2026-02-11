@@ -2,19 +2,20 @@ using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
-    private Vector3 startPos;
-    private float repeatWidth;
+    private Vector3 _startPos;
+    private float _repeatWidth;
+
 
     void Start()
     {
-        startPos = transform.position;
-        repeatWidth = GetComponent<BoxCollider>().size.x / 3;
+        _startPos = transform.position;
+        _repeatWidth = GetComponent<BoxCollider>().size.x / 3;
     }
 
 
     void Update()
     {
-        if (transform.position.x < startPos.x - repeatWidth)
-            transform.position = startPos;
+        if (transform.position.x < _startPos.x - _repeatWidth)
+            transform.position = _startPos;
     }
 }

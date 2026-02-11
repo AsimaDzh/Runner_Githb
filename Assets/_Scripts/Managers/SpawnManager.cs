@@ -4,26 +4,27 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] GameObject[] spawnablePrefabs;
 
-    private Vector3 spawnPos = new Vector3(25f, 1.3f, 0f);
-    private float startDelay = 2f;
-    private float repeatRate = 2f;
+    private Vector3 _spawnPos = new Vector3(25f, 1.3f, 0f);
+    private float _startDelay = 2f;
+    private float _repeatRate = 2f;
 
-    private PlayerController playerControllerScript;
+    private PlayerController _playerController;
+
 
     void Start()
     {
-        playerControllerScript = GameObject.Find("Woman").GetComponent<PlayerController>();
+        _playerController = GameObject.Find("Woman").GetComponent<PlayerController>();
 
-        InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
+        InvokeRepeating("SpawnObstacle", _startDelay, _repeatRate);
     }
 
 
     void SpawnObstacle()
     {
-        if (!playerControllerScript.isGameOver)
+        if (!_playerController.isGameOver)
             Instantiate(
                 spawnablePrefabs[Random.Range(0, spawnablePrefabs.Length)], 
-                spawnPos, 
+                _spawnPos, 
                 Quaternion.identity);
     }
 }

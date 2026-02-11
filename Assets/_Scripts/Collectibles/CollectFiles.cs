@@ -5,8 +5,8 @@ public class CollectFiles : MonoBehaviour
 {
     private int fileCount = 0;
 
-    public TextMeshProUGUI fileCountText;
-    public TextMeshProUGUI gameOverFilesText;
+    [SerializeField] private TextMeshProUGUI fileCountText;
+    [SerializeField] private TextMeshProUGUI gameOverFilesText;
 
     void OnTriggerEnter(Collider other)
     {

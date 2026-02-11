@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class ShootSpawn : MonoBehaviour
 {
-    public GameObject enemyShootPrefab;
-    public Transform enemyShootPoint;
+    [SerializeField] private GameObject enemyShootPrefab;
+    [SerializeField] private Transform enemyShootPoint;
     [SerializeField] private float shootSpeed = 20f;
     [SerializeField] private float timer;
 
-    private PlayerController playerControllerScript;
-    private EnemySpawn enemySpawnScript;
+    private PlayerController _playerController;
+    private EnemySpawn _enemySpawn;
 
 
     void Start()
     {
-        playerControllerScript = GameObject.Find("Woman").GetComponent<PlayerController>();
-        enemySpawnScript = GetComponentInParent<EnemySpawn>();
+        _playerController = GameObject.Find("Woman").GetComponent<PlayerController>();
+        _enemySpawn = GetComponentInParent<EnemySpawn>();
     }
+
 
     void Update()
     {
@@ -28,11 +29,15 @@ public class ShootSpawn : MonoBehaviour
         }
     }
 
+
     void EnemyShoot()
     {
-        if (!playerControllerScript.isGameOver && !enemySpawnScript.isDeadFlag)
+        if (!_playerController.isGameOver && !_enemySpawn.isDeadFlag)
         {
-            var bullet = Instantiate(enemyShootPrefab, enemyShootPoint.position, Quaternion.identity);
+            var bullet = Instantiate(
+                enemyShootPrefab, 
+                enemyShootPoint.position, 
+                Quaternion.identity);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             rb.linearVelocity = Vector3.left * shootSpeed;
         }

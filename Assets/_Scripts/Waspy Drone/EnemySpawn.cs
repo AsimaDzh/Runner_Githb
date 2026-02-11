@@ -5,23 +5,24 @@ public class EnemySpawn : MonoBehaviour
 {
     private Object _enemyRef;
     private Vector3 _startPosition;
-    private float delayBeforeDestroy = 5f;
+    private float _delayBeforeDestroy = 5f;
 
-    private PlayerController playerControllerScript;
-    private Animator enemyAnim;
+    private PlayerController _playerController;
+    private Animator _enemyAnim;
 
     public bool isDeadFlag = false;
-    public ParticleSystem deathParticle;
-
-    public AudioClip deathSound;
-    private AudioSource enemyAudio;
+    
+    [SerializeField] private ParticleSystem deathParticle;
+    [SerializeField] private AudioClip deathSound;
+    private AudioSource _enemyAudio;
+    
 
     void Start()
     {
-        playerControllerScript = GameObject.Find("Woman").GetComponent<PlayerController>();
+        _playerController = GameObject.Find("Woman").GetComponent<PlayerController>();
         _enemyRef = Resources.Load("waspy");
-        enemyAnim = GetComponent<Animator>();
-        enemyAudio = GetComponent<AudioSource>();
+        _enemyAnim = GetComponent<Animator>();
+        _enemyAudio = GetComponent<AudioSource>();
 
         _startPosition = transform.position;
     }
@@ -33,12 +34,13 @@ public class EnemySpawn : MonoBehaviour
             isDeadFlag = true;
             Destroy(other.gameObject);
 
-            enemyAudio.PlayOneShot(deathSound, 1.0f);
+            _enemyAudio.PlayOneShot(deathSound, 1.0f);
             deathParticle.Play();
-            enemyAnim.SetBool("isDead", true); //Help
+            _enemyAnim.SetBool("isDead", true);
 
             var col = GetComponent<Collider>();
-            if (col != null) col.enabled = false;
+            if (col != null) 
+                col.enabled = false;
 
             StartCoroutine(DeathAndRespawnRoutine());
         }
@@ -46,16 +48,16 @@ public class EnemySpawn : MonoBehaviour
 
     private IEnumerator DeathAndRespawnRoutine()
     {
-        float waitTime = 1.2f;
-        yield return new WaitForSeconds(waitTime);
+        float _waitTime = 1.2f;
+        yield return new WaitForSeconds(_waitTime);
 
         gameObject.SetActive(false);
-        Invoke("Respawn", delayBeforeDestroy);
+        Invoke("Respawn", _delayBeforeDestroy);
     }
 
     private void Respawn()
     {
-        if (!playerControllerScript.isGameOver)
+        if (!_playerController.isGameOver)
         {
             GameObject enemyClone = (GameObject)Instantiate(_enemyRef);
             enemyClone.transform.position = new Vector3(Random.Range(

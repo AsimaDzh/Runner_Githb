@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class ObstacleMoveLeft : MonoBehaviour
 {
-    [Header("==========Speed Settings==========")]
-    public float speed;
+    [SerializeField] private float speed;
 
-    private PlayerController playerControllerScript;
-    private float leftBound = -10f;
+    private PlayerController _playerController;
+    private float _leftBound = -10f;
+
 
     void Start()
     {
-        playerControllerScript = GameObject.Find("Woman").GetComponent<PlayerController>();
+        _playerController = GameObject.Find("Woman").GetComponent<PlayerController>();
     }
+
 
     void Update()
     {
-        if (!playerControllerScript.isGameOver)
-        {
+        if (!_playerController.isGameOver)
             transform.Translate(Vector3.left * speed * Time.deltaTime);
-        }
 
-        if (transform.position.x < leftBound && !gameObject.CompareTag("Paralax"))
+        if (transform.position.x < _leftBound && !gameObject.CompareTag("Paralax"))
             Destroy(gameObject);
     }
 }
