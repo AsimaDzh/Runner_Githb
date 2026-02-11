@@ -3666,6 +3666,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1733912725252117704, guid: fe520ce6663e67348a964bf7b4318e26, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733912725252117704, guid: fe520ce6663e67348a964bf7b4318e26, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733912725252117704, guid: fe520ce6663e67348a964bf7b4318e26, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516464534918125747, guid: fe520ce6663e67348a964bf7b4318e26, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6858778605461965668, guid: fe520ce6663e67348a964bf7b4318e26, type: 3}
       propertyPath: gameOverPanel
       value: 
