@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [Header("========== Audio Clips ==========")]
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip crashSound;
-    [SerializeField] private AudioSource playerAudio;
+    private AudioSource playerAudio;
 
 
     void Start()
